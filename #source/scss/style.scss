@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:300&display=swap");
 @import "nullstyle.scss";
 
 @mixin font-Lato {
@@ -7,11 +8,20 @@
   font-family: "Montserrat", sans-serif;
 }
 //== /mixin ==
+
+// === Common ===
 * {
   box-sizing: border-box;
 }
+
+/*.wrapper {
+  overflow: hidden;
+  padding: 757px 212px 132px;
+}*/
+
 body {
   @include font-Lato;
+  color: #414141;
 }
 
 .section-outer {
@@ -20,10 +30,56 @@ body {
   width: 1180px;
   margin: 0 auto;
 }
+
+.desctiption-item {
+  &__icon {
+    margin-bottom: 20px;
+  }
+  &__title {
+    margin-bottom: 14px;
+    font-size: 18px;
+    line-height: 22px;
+    font-weight: bold;
+  }
+
+  &__text {
+    font-size: 16px;
+    line-height: 27px;
+    font-weight: 300;
+    color: #6c6c6c;
+  }
+}
+
+@mixin start-button {
+  @include font-Montserrat;
+
+  padding: 16px 20px;
+  font-size: 16px;
+  margin: 0;
+  border-radius: 4px;
+  outline: none;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn-main {
+  @include start-button;
+
+  border: none;
+  background: linear-gradient(to right, #fe985b 0%, #fe4fa7 100%);
+  color: #ffffff;
+}
+.btn-secondary {
+  @include start-button;
+
+  border: 1px solid #414141;
+  background: #ffffff;
+  color: #414141;
+}
 // ====header===
 .section-header {
   color: #ffffff;
-  background: url("../../img/Bitmap.png") no-repeat 50% 50%;
+  background: url("../../img/Bitmap1.png") no-repeat 50% 50%;
   background-size: cover;
   position: relative;
 
@@ -34,7 +90,6 @@ body {
     display: flex;
     flex-direction: column;
   }
-
   &::before {
     content: "";
     position: absolute;
@@ -45,52 +100,43 @@ body {
     left: 0;
     background-color: rgba(20, 39, 41, 0.6);
   }
-
   &-logo {
     font-weight: bold;
     font-size: 24px;
     flex-shrink: 1;
     padding-top: 35px;
   }
-
   &-content {
     flex-grow: 1;
     display: flex;
-    aling-items: center;
+    align-items: center;
     padding-top: 317px;
   }
-
   &-wrapper {
     &__title,
     &__subtitle {
       text-align: center;
     }
-
     &__title {
       font-weight: bold;
       font-size: 56px;
       line-height: 60px;
       margin-bottom: 16px;
     }
-
     &__subtitle {
       @include font-Montserrat;
-
       font-size: 18px;
       line-height: 32px;
       width: 60%;
       margin: 0 auto 44px;
     }
-
     &__form {
       display: flex;
-
       &-input {
         flex: 1;
         padding-right: 40px;
         input {
           @include font-Montserrat;
-
           border: none;
           background: rgba(255, 255, 255, 0.25);
           color: white;
@@ -109,32 +155,17 @@ body {
         }
       }
       &-button {
-        @include font-Montserrat;
-
-        padding: 16px 20px;
-        border: none;
-        background: linear-gradient(to right, #fe985b 0%, #fe4fa7 100%);
-        color: #ffffff;
-        font-size: 18px;
-        margin: 0;
-        width: 192px;
-        height: 53px;
-        border-radius: 4px;
-        outline: none;
       }
     }
   }
 }
-
-.section-promo- {
+// ====promo====
+.section-promo {
   padding-top: 120px;
   padding-bottom: 120px;
+  margin: 0 270px;
 }
 
-.section-inner__promo {
-  width: 1175px;
-  height: 824px;
-}
 .section-promo-1 {
   display: flex;
 
@@ -142,20 +173,140 @@ body {
   &__video {
     flex-basis: 50%;
   }
+
   &__content {
     padding-right: 90px;
 
     .title {
-      width: 513px;
-      height: 97px;
-      color: #414141;
-      font-size: 36px;
-      font-weight: 700;
+      font-size: 32px;
       line-height: 51px;
+      font-weight: bold;
+      margin-bottom: 56px;
     }
-    .subtitle {
+
+    .desctiption-item {
+      margin-top: 28px;
     }
-    &text {
+  }
+  &__video {
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+}
+
+.section-promo-2 {
+  display: flex;
+  padding-top: 86px;
+  margin-top: 120px;
+  border-top: 1px solid #e2e2e2;
+  text-align: center;
+
+  .desctiption-item + .desctiption-item {
+    margin-left: 40px;
+  }
+}
+// === / promo ===
+
+// === founder ====
+.section-founder {
+  background-color: #f6fafd;
+  padding-top: 34px;
+  .section-inner {
+    display: flex;
+  }
+
+  &__img {
+    padding-top: 34px;
+    align-self: flex-end;
+  }
+  &__content {
+    align-self: center;
+    padding-left: 50px;
+
+    &-text {
+      @include font-Montserrat;
+      font-size: 24px;
+      line-height: 40px;
+    }
+    &-name {
+      font-size: 24px;
+      line-height: 29px;
+      font-weight: bold;
+    }
+    &-post {
+      font-size: 20px;
+      line-height: 29px;
+    }
+  }
+}
+// === / founder ===
+
+// === plans ===
+.section-plans {
+  padding-top: 120px;
+  padding-bottom: 120px;
+  text-align: center;
+
+  &__title {
+    font-size: 36px;
+    line-height: 51px;
+    font-weight: bold;
+  }
+
+  &__subtitle {
+    font-size: 16px;
+    line-height: 28px;
+    font-weight: 300;
+    width: 50%;
+    margin: 0 auto 80px;
+  }
+
+  &__list {
+    display: flex;
+    justify-content: center;
+
+    &-item {
+      flex-basis: 370px;
+      padding: 60px 45px;
+
+      &_title {
+        font-size: 14px;
+        line-height: 17px;
+        font-weight: bold;
+        text-transform: uppercase;
+        margin-bottom: 26px;
+      }
+
+      &_price {
+        margin-bottom: 26px;
+
+        .prefix {
+          color: #fe4fa7;
+          font-size: 72px;
+          line-height: 86px;
+          font-weight: bold;
+        }
+        .postfix {
+          font-size: 14px;
+          line-height: 17px;
+          font-weight: bold;
+        }
+      }
+
+      &_description {
+        font-size: 16px;
+        line-height: 28px;
+        font-weight: 300;
+        margin-bottom: 50px;
+      }
+
+      &_button {
+      }
+      &.active {
+        background-color: #f6fafd;
+      }
     }
   }
 }
